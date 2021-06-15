@@ -2,7 +2,7 @@ import torch
 import pickle
 from transformers import BertTokenizer, BertModel
 if __name__ == '__main__':
-    model = torch.load('save/model.pkl', map_location=torch.device('cpu'))
+    model = torch.load('save/model_epoch0.pkl', map_location=torch.device('cuda'))
     output = open('cws_result.txt', 'w', encoding='utf-8')
     tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 
@@ -45,8 +45,11 @@ if __name__ == '__main__':
             segments = torch.ones_like(x, dtype=torch.long).cuda()
             mask = torch.ones_like(x, dtype=torch.uint8).cuda()
             mask[0][l - 1] = 0
+            #print(id2tag)
             predict = model.infer(x, mask, length, bert_mask, segments)[0]
+            #print(predict)
             for i in range(len(test)):
-                print(test[i], end=' ', file=output)
-                print(id2tag[predict[i+1]],end=' ',file=output)
-                print(file=output)
+                print(test[i],id2tag[predict[i+1]] , file=output)
+                
+
+            print(file=output)

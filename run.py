@@ -10,12 +10,12 @@ from dataloader import Sentence
 
 def get_param():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--embedding_dim', type=int, default=100)
-    parser.add_argument('--lr', type=float, default=0.005)
-    parser.add_argument('--max_epoch', type=int, default=10)
-    parser.add_argument('--batch_size', type=int, default=128)
+    parser.add_argument('--embedding_dim', type=int, default=768)
+    parser.add_argument('--lr', type=float, default=0.00002)
+    parser.add_argument('--max_epoch', type=int, default=4)
+    parser.add_argument('--batch_size', type=int, default=30)
     parser.add_argument('--hidden_dim', type=int, default=200)
-    parser.add_argument('--cuda', action='store_true', default=False)
+    parser.add_argument('--cuda', action='store_true', default=True)
     return parser.parse_args()
 
 
@@ -56,6 +56,8 @@ def entity_split(x, y, id2tag, entities, cur):
 
 def main(args):
     use_cuda = args.cuda and torch.cuda.is_available()
+    print("cuda is ready")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     with open('data/datasave.pkl', 'rb') as inp:
         word2id = pickle.load(inp)
@@ -96,14 +98,21 @@ def main(args):
     for epoch in range(args.max_epoch):
         step = 0
         log = []
-        for sentence, label, mask, length in train_data:
+        for sentence, label, mask, length,bert_mask,segments in train_data:
             if use_cuda:
-                sentence = sentence.cuda()
-                label = label.cuda()
-                mask = mask.cuda()
+                sentence = sentence.to(device)
+                label = label.to(device)
+                mask = mask.to(device)
+                bert_mask=bert_mask.to(device)
+                segments=segments.to(device)
 
+             
+    #        print(sentence.size()) 
+     #       print(label.size()) 
             # forward
-            loss = model(sentence, label, mask, length)
+            loss,emissions = model(sentence, label, mask, length,bert_mask,segments)
+            
+            
             log.append(loss.item())
 
             # backward
@@ -113,6 +122,12 @@ def main(args):
 
             step += 1
             if step % 100 == 0:
+                print(sentence[0])
+                print(label[0])
+                print(mask[0])
+               # print(emissions[0])
+                print(bert_mask[0])
+                print(segments[0])
                 logging.debug('epoch %d-step %d loss: %f' % (epoch, step, sum(log)/len(log)))
                 log = []
 
@@ -122,16 +137,19 @@ def main(args):
         with torch.no_grad():
             model.eval()
             cur = 0
-            for sentence, label, mask, length in test_data:
+            for sentence, label, mask, length,b,s in test_data:
                 if use_cuda:
                     sentence = sentence.cuda()
                     label = label.cuda()
                     mask = mask.cuda()
-                predict = model.infer(sentence, mask, length)
+                    
+                    b=b.cuda()
+                    s=s.cuda()
+                predict = model.infer(sentence, mask, length,b,s)
 
                 for i in range(len(length)):
-                    entity_split(sentence[i, :length[i]], predict[i], id2tag, entity_predict, cur)
-                    entity_split(sentence[i, :length[i]], label[i, :length[i]], id2tag, entity_label, cur)
+                    entity_split(sentence[i, :length[i]-1], predict[i], id2tag, entity_predict, cur)
+                    entity_split(sentence[i, :length[i]-1], label[i, :length[i]-1], id2tag, entity_label, cur)
                     cur += length[i]
 
             right_predict = [i for i in entity_predict if i in entity_label]

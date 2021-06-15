@@ -53,6 +53,9 @@ def handle_data():
                 sentence_x.append("[SEP]")
                 sentence_y.append(0)
                 encoded_input = tokenizer.convert_tokens_to_ids(sentence_x)
+                if len(encoded_input)>512:
+                    encoded_input=encoded_input[0:512]
+                    sentence_y=sentence_y[0:512]
                 x_data.append(encoded_input)
                 y_data.append(sentence_y)
                 sentence_x=[]
@@ -84,10 +87,10 @@ def handle_data():
     x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.1, random_state=43)
     output = open('test_x_ner.txt', 'w', encoding='utf-8')
     for line in x_test:
-        sentence=tokenizer.convert_tokens_to_ids(line)
+        sentence=tokenizer.convert_ids_to_tokens(line)
         sentence=sentence[1:len(sentence)-1]
         for i in range(len(sentence)):
-            print(sentence[i], end=' ', file=output)
+            print(sentence[i], end='', file=output)
         print(file=output)
 
 
