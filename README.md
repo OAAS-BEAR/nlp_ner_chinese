@@ -77,7 +77,7 @@ Qunli Li @ Huazhong University of Science and Technology
 
 Prof.Wei wei @ Huazhong University Of Science and Technology
 
-##reference
+## reference
 
 [State-of-the-art Chinese Word Segmentation with Bi-LSTMs](https://aclanthology.org/D18-1529/)
 
