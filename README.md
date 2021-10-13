@@ -1,4 +1,5 @@
- This is a research-orient project on the task of Chinese word segementation
+ This is an independent research-orient project on the task of Chinese word segementation, which belongs to the category of natural language processing. 
+ The model is 
 
 ## environment preparation
 
