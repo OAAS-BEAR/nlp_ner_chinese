@@ -1,7 +1,11 @@
- This is an independent research-orient project on the task of Chinese word segementation, which belongs to the category of natural language processing. 
- The model is 
+## Table of Contents
 
-## environment preparation
+- [Background](#background)
+- [Main work](# My work)
+- [Environment install](#environment)
+- [Usage](#usage)
+
+## background
 
 1. install Anaconda
 
