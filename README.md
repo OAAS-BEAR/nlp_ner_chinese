@@ -4,22 +4,21 @@
 
 1. install Anaconda
 
-   <a href="https://zhuanlan.zhihu.com/p/75717350">windows 下安装教程</a>
+   visit https://www.anaconda.com/products/individual#windows
 
-   ：<a href="https://docs.continuum.io/anaconda/install/">anaconda install</a>
 
 2. create vitual environment PyTorch
     ```shell
     # create vitual environment
-    conda create -n nlplab python=3.7	
+    conda create -n nlp_chinese python=3.7	
 
     # Virtual environment related commands
-    conda activate nlplab  # activate vitual environment nlplab，
+    conda activate nlp_chinese  # activate vitual environment nlp_chinese，
     conda deactivate       # Exit the current virtual environment
     conda info -e          # View all virtual environments, * indicates the current environment
 
     # install Pytorch 1.6.0 
-    # Note: activate nlplab virtual environment before installation
+    # Note: activate nlp_chinese virtual environment before installation
     conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
     conda install pytorch==1.6.0
     ```
@@ -32,7 +31,7 @@
 2. Install other dependendent package
 
    ```sh
-   # 在 nlplab 虚拟环境中安装
+   # Install in nlp_chinese virtual environment
    pip install -r requirements.txt
    ```
 
