@@ -1,11 +1,16 @@
 ## Table of Contents
 
 - [Background](#background)
-- [Main work](# My work)
+- [Main work](#mywork)
 - [Environment install](#environment)
 - [Usage](#usage)
 
 ## background
+
+
+## mywork
+
+## environment
 
 1. install Anaconda
 
@@ -27,7 +32,7 @@
     conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
     conda install pytorch==1.6.0
     ```
-## 
+
 
 1. install PyCharm
 
@@ -40,6 +45,7 @@
    pip install -r requirements.txt
    ```
 
+## usage
 3. train
 
    ```
