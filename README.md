@@ -6,7 +6,7 @@
 - [Contributing](#contributer)
 
 ## background
-this is an independent research-oriented project on the task of Chinese word segmentation, whick belongs to the catergory of natural language processing.
+this is an independent research-oriented project on the task of Chinese word segmentation, which belongs to the catergory of natural language processing.
 
 I explored  different deep network achitectures, evaluate their  performances on Chinese word Segmentation.Based on the  experienments, the network achitecture bert+lstm+crf  significantly outperforms other achitectures,including lstm+crf,bert+crf.
 
