@@ -1,14 +1,18 @@
 ## Table of Contents
 
 - [Background](#background)
-- [Main work](#mywork)
 - [Environment install](#environment)
 - [Usage](#usage)
+- [Contributing](#contributer)
 
 ## background
+this is an independent research-oriented projects on the task of Chinese word segmentation, whick belongs to the catergory of natural language processing.
+
+I explored different different deep networks achitectures, evaluate their individual performances on Chinese word Segmentation.
+
+Based on my experienment, the networks achitectures bert+lstm+crf  significantly outperforms other achitectures,including lstm+crf,bert+crf.
 
 
-## mywork
 
 ## environment
 
@@ -46,7 +50,7 @@
    ```
 
 ## usage
-3. train
+ train
 
    ```
    
@@ -57,10 +61,13 @@
    python run.py
    ```
 
-4. infer
+ infer
 
    ```shell
    python infer.py
    ```
 
+## contributer
+Qunli Li @ Huazhong University of Science and Technology
+Prof.Wei wei @ Huazhong University Of Science and Technology
    
