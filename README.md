@@ -4,6 +4,7 @@
 - [Environment install](#environment)
 - [Usage](#usage)
 - [Contributing](#contributer)
+- [Reference](#reference)
 
 ## background
 this is an independent research-oriented project on the task of Chinese word segmentation, which belongs to the catergory of natural language processing.
@@ -75,4 +76,11 @@ The state-of-art model  is trained on GPU A100,you can find the model architectu
 Qunli Li @ Huazhong University of Science and Technology
 
 Prof.Wei wei @ Huazhong University Of Science and Technology
+
+##reference
+[State-of-the-art Chinese Word Segmentation with Bi-LSTMs](https://aclanthology.org/D18-1529/)
+[Toward Fast and Accurate Neural Chinese Word Segmentation with Multi-Criteria Learning](https://arxiv.org/pdf/1903.04190.pdf)
+[Neural Word Segmentation with Rich Pretraining](https://aclanthology.org/P17-1078/)
+[Word-Context Character Embeddings for Chinese Word Segmentation](https://aclanthology.org/D17-1079/)
+
    
