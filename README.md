@@ -15,7 +15,7 @@ The model also outperforms famous [HanLP](https://www.hanlp.com/product-pos.html
 
 I  collected a vast amount of training data from the different sources on the internet,including Weibo,[icwb2](http://sighan.cs.uchicago.edu/bakeoff2005/). You can find the training data in data/train.txt
 
-The state-of-art model  is trained on GPU A100, and tested on data set data/test.txt.you can find the model architecture in file model.py. Any question please contact 1147182925@qq.com(Qunli Li) 
+The state-of-art model  is trained on GPU A100, and tested on dataset data/test.txt. you can find the model architecture in file model.py. Any question please contact 1147182925@qq.com(Qunli Li) 
 
 
 
