@@ -78,9 +78,13 @@ Qunli Li @ Huazhong University of Science and Technology
 Prof.Wei wei @ Huazhong University Of Science and Technology
 
 ##reference
+
 [State-of-the-art Chinese Word Segmentation with Bi-LSTMs](https://aclanthology.org/D18-1529/)
+
 [Toward Fast and Accurate Neural Chinese Word Segmentation with Multi-Criteria Learning](https://arxiv.org/pdf/1903.04190.pdf)
+
 [Neural Word Segmentation with Rich Pretraining](https://aclanthology.org/P17-1078/)
+
 [Word-Context Character Embeddings for Chinese Word Segmentation](https://aclanthology.org/D17-1079/)
 
    
