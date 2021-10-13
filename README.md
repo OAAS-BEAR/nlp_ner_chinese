@@ -1,4 +1,4 @@
-
+ This is a research-orient project on the task of Chinese word segementation
 
 ## environment preparation
 
