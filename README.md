@@ -7,15 +7,13 @@
 - [Reference](#reference)
 
 ## background
-this is an independent research-oriented project on the task of Chinese word segmentation, which belongs to the catergory of natural language processing.
+This is a research-oriented project on the task of Chinese word segmentation, which belongs to the catergory of natural language processing.
 
 I explored  different deep network achitectures and  evaluated their  performances on Chinese word Segmentation.Based on the experienments, the network achitecture bert+lstm+crf  significantly outperforms other achitectures,including lstm+crf,bert+crf. The model also outperforms famous [HanLP](https://www.hanlp.com/product-pos.html)
 
-I tested different word-embedding strategies by feeding different vector combinations as input features to a LSTM. The experienments show that the sum of the last four layers of the bert output produced the best results. It is worth noting that the concat of last four hidden layers have similiar performance compared to the sum of last four layers. 
-
 I  collected a vast amount of training data from the different sources on the internet,including Weibo,[icwb2](http://sighan.cs.uchicago.edu/bakeoff2005/). You can find the training data in data/train.txt. The model's performance is evaluated based on its F1 score on the test data.The large training  dataset is very important for the model to achieve high performance. you can find the test data in data/test.txt.
 
-The state-of-art model  is trained on GPU A100. you can find the model architecture in file model.py. Any question please contact 1147182925@qq.com(Qunli Li) 
+The state-of-art model is trained on GPU A100. you can find the model architecture in file model.py. Any question please contact 1147182925@qq.com(Qunli Li) 
 
 
 
